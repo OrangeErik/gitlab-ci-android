@@ -34,4 +34,10 @@ build:
 
 ## Sources
 
-You can find the source of this image at [theimpulson/gitlab-ci-android](https://gitlab.com/theimpulson/gitlab-ci-android).
+You can find the source of this image at [GitLab](https://gitlab.com/theimpulson/gitlab-ci-android). This image is hosted on [DockerHub](https://hub.docker.com/r/theimpulson/gitlab-ci-android).
+
+## Development
+
+- A the list of contributors can be viewed on this repository's [contributors graph](https://gitlab.com/theimpulson/gitlab-ci-android/-/graphs/main).
+
+In case you wish to contribute to the development of this project, feel free to open a [Merge Request](https://gitlab.com/theimpulson/gitlab-ci-android/-/merge_requests) or an [Issue](https://gitlab.com/theimpulson/gitlab-ci-android/-/issues/) for the same. Contributions are always welcome.
