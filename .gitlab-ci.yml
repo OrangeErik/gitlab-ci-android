@@ -1,24 +1,23 @@
-stages:
-  - build
-  - push
+image: docker:latest
+
+services:
+  - docker:dind
+
+before_script:
+  - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+
+build-main:
+  stage: build
+  script:
+    - docker build -t "$CI_REGISTRY_IMAGE" .
+    - docker push "$CI_REGISTRY_IMAGE"
+  only:
+    - main
 
 build:
   stage: build
   script:
-    - docker build -t dcr.faked.org/gitlab-ci/android:${CI_COMMIT_SHORT_SHA} .
-
-push_latest:
-  stage: push
-  only:
-    - master
-  script:
-    - docker tag dcr.faked.org/gitlab-ci/android:${CI_COMMIT_SHORT_SHA} dcr.faked.org/gitlab-ci/android:latest
-    - docker push dcr.faked.org/gitlab-ci/android:latest
-
-push_tag:
-  stage: push
-  only:
-    - tags
-  script:
-    - docker tag dcr.faked.org/gitlab-ci/android:${CI_COMMIT_SHORT_SHA} dcr.faked.org/gitlab-ci/android:${CI_COMMIT_TAG}
-    - docker push dcr.faked.org/gitlab-ci/android:${CI_COMMIT_TAG}
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" .
+    - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"
+  except:
+    - main
