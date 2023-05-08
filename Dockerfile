@@ -1,11 +1,5 @@
 FROM ubuntu:22.04
 
-# Global Gradle arguments
-ARG GRADLE_VERSION="8.0"
-ARG GRADLE_DIST=bin
-ARG GRADLE_HOME="/gradle"
-ARG GRADLE_PATH="${GRADLE_HOME}/gradle-${GRADLE_VERSION}/bin"
-
 # Global Android command-line tools from https://developer.android.com/studio
 ARG ANDROID_CMDLINE_TOOLS_VERSION=9477386
 ENV ANDROID_SDK_ROOT "/sdk"
@@ -13,7 +7,7 @@ ENV ANDROID_HOME "/sdk"
 ARG ANDROID_CMDLINE_TOOLS_BIN="${ANDROID_SDK_ROOT}/cmdline-tools/tools/bin"
 
 # Add Gradle and SDK tools to the PATH
-ENV PATH "$PATH:${ANDROID_CMDLINE_TOOLS_BIN}/:${GRADLE_PATH}/:${ANDROID_HOME}/emulator/:${ANDROID_HOME}/platform-tools/:${ANDROID_HOME}/build-tools/33.0.0/"
+ENV PATH "$PATH:${ANDROID_CMDLINE_TOOLS_BIN}/:${ANDROID_HOME}/emulator/:${ANDROID_HOME}/platform-tools/:${ANDROID_HOME}/build-tools/33.0.0/"
 
 # Setup distribution and install required distribution packages
 ARG JDK_VERSION=17
@@ -67,8 +61,3 @@ RUN mkdir -p /root/.android \
 
 ADD packages.txt /sdk
 RUN sdkmanager --verbose --package_file=/sdk/packages.txt
-
-# Download and install Gradle
-# Keep it aligned default version as given in https://developer.android.com/studio/releases/gradle-plugin#versioning-update
-RUN curl -s https://downloads.gradle-dn.com/distributions/gradle-${GRADLE_VERSION}-${GRADLE_DIST}.zip > /gradle.zip && \
-    unzip -q /gradle.zip -d /gradle
