@@ -1,5 +1,6 @@
-build-tools;33.0.0
+build-tools;30.0.3
 platforms;android-33
 platform-tools
 patcher;v4
 emulator
+tools
