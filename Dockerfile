@@ -21,7 +21,7 @@ ENV ANDROID_HOME "/sdk"
 ARG ANDROID_CMDLINE_TOOLS_BIN="${ANDROID_SDK_ROOT}/cmdline-tools/tools/bin"
 
 # Add Gradle and SDK tools to the PATH
-ENV PATH "$PATH:${ANDROID_CMDLINE_TOOLS_BIN}/:${ANDROID_HOME}/emulator/:${ANDROID_HOME}/platform-tools/:${ANDROID_HOME}/build-tools/30.0.3/"
+ENV PATH "$PATH:${ANDROID_CMDLINE_TOOLS_BIN}/:${ANDROID_HOME}/emulator/:${ANDROID_HOME}/platform-tools/:${ANDROID_HOME}/build-tools/33.0.1/"
 
 # Setup distribution and install required distribution packages
 ARG JDK_VERSION=17
