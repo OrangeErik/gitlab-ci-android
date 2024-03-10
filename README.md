@@ -1,6 +1,6 @@
 # gitlab-ci-android
 
-This Docker image is a fork of [theimpulson/gitlab-ci-android]([https://github.com/jangrewe/gitlab-ci-android](https://gitlab.com/theimpulson/gitlab-ci-android). This fork contains the Android SDK and most standard, up-to-date packages necessary for building Android apps in a CI in GitLab CI.
+This Docker image is a fork of [theimpulson/gitlab-ci-android](https://gitlab.com/theimpulson/gitlab-ci-android). This fork contains the Android SDK and most standard, up-to-date packages necessary for building Android apps in a CI in GitLab CI.
 
 ## Environment
 
