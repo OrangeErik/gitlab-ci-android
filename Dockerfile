@@ -15,13 +15,14 @@
 FROM ubuntu:22.04
 
 # Global Android command-line tools from https://developer.android.com/studio
-ARG ANDROID_CMDLINE_TOOLS_VERSION=10406996
+ARG ANDROID_CMDLINE_TOOLS_VERSION=11076708
+ARG ANDROID_BUILD_TOOLS_VERSION="34.0.0"
 ENV ANDROID_SDK_ROOT "/sdk"
 ENV ANDROID_HOME "/sdk"
 ARG ANDROID_CMDLINE_TOOLS_BIN="${ANDROID_SDK_ROOT}/cmdline-tools/tools/bin"
 
 # Add Gradle and SDK tools to the PATH
-ENV PATH "$PATH:${ANDROID_CMDLINE_TOOLS_BIN}/:${ANDROID_HOME}/emulator/:${ANDROID_HOME}/platform-tools/:${ANDROID_HOME}/build-tools/33.0.1/"
+ENV PATH "$PATH:${ANDROID_CMDLINE_TOOLS_BIN}/:${ANDROID_HOME}/emulator/:${ANDROID_HOME}/platform-tools/:${ANDROID_HOME}/build-tools/${ANDROID_BUILD_TOOLS_VERSION}/"
 
 # Setup distribution and install required distribution packages
 ARG JDK_VERSION=17
