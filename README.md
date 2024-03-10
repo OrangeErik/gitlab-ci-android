@@ -34,4 +34,4 @@ build:
 
 ## Sources
 
-You can find the source of this image at [GitLab](https://gitlab.com/theimpulson/gitlab-ci-android). This image is hosted on [DockerHub](https://hub.docker.com/r/theimpulson/gitlab-ci-android).
+This image is hosted on [DockerHub](https://hub.docker.com/r/soboleverik/gitlab-ci-android).
